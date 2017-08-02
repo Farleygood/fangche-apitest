@@ -7,13 +7,12 @@ import unittest
 import time
 import HTMLTestRunner
 from model.log import logger
-
-
-# python2.* 加下面两句,防止乱码
-import sys
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import smtplib,os
+
+# python2.* 加下面两句,防止乱码
+import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
@@ -63,7 +62,7 @@ def send_mail(file_new):
     try:
         smtp = smtplib.SMTP_SSL()
         smtp.connect('smtp.qq.com')
-        smtp.login("44248556@qq.com", "")
+        smtp.login("44248556@qq.com", "password,或者客户端授权码")
 
         # 发送给多个人时用列表形式,["xxx@qq.com","aaa@qq.com"]
         smtp.sendmail("44248556@qq.com","2881510217@qq.com",msg=msg.as_string())
