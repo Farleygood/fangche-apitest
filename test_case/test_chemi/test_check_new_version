@@ -16,7 +16,7 @@ sys.setdefaultencoding('utf-8')
 class checkNewVersion(unittest.TestCase):
 
     def setUp(self):
-        pass
+        updata_tables('chemi_interface_case','','')
 
     def test_001(self):
         '''检测新版本'''
