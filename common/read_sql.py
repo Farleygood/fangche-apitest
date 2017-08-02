@@ -32,6 +32,21 @@ def updataMysql(tb, field1,field2,field3):
         print("更新数据出错"),e
     db.close()
 
+# 初始化时调用,清空Response,Result
+def updata_tables(tb, field1,field2):
+    try:
+        db = MySQLdb.connect(**conn)
+        cur = db.cursor()
+    except Exception as e:
+        print("请检查数据库连接"),e
+    try:
+        cur.execute("update %s set Response='%s',Result='%s'" %(tb,field1,field2))
+        db.commit()
+    except Exception as e:
+        db.rollback()
+        print("更新数据出错"),e
+    db.close()
+
 def updata_result(tb,result,desc):
     try:
         db = MySQLdb.connect(**conn)
