@@ -8,7 +8,7 @@ def r_uuid():
 
     url = 'http://rv.huacherv.com/rvcamp/m/user/login/general'
     data = {
-            "username":"13538152630",
+            "username":"13538152xxx",
             "password":"1234567"
             }
 
