@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>接口自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+    text-align:center;
+	font-size: 24pt;
+	color: #0a0a0a;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>接口自动化测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2017-08-02 16:01:49</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:05.055000</p>
+<p class='attribute'><strong>Status:</strong> Pass 14 Failure 3 Error 2</p>
+
+<p class='description'>自动化测试报告详细信息</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_chemi.test_get720_version.getVersion</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',2)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002: 获取720_53设备最新版本</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <p style="word-wrap:break-word;word-break:break-all;">
+        
+pt1.1: 执行成功
+{"code":200,"msg":"执行成功","result":{"ID":31,"ceateTime":"2016-12-28 09:16:38.0","codes":"636f57e5da8f5f328b9c1ad8766c6be3","creater":"lh","delTime":"","isDel":0,"size":8896475,"sysType":"720_53","type":1004,"updateVer":"22","url1":"http://www.che-mi.com.cn/720_53/V1.1.9-V1.2.2.zip","url2":"http://www.che-mi.com.cn/720_53/V1.1.9-V1.2.2.zip","url3":"http://www.che-mi.com.cn/720_53/V1.1.9-V1.2.2.zip","verId":19,"verInfo":"720_53\r\n升级"},"version":"22"}
+
+
+        </p>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_003: 获取720can设备最新版本</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
+
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <p style="word-wrap:break-word;word-break:break-all;">
+        
+pt1.2: 200
+{"code":200,"msg":"执行成功","result":{"ID":14,"ceateTime":"2016-09-12 10:15:38.0","codes":"af322d11ab316eea3a5556edcfd694b0","creater":"fit","delTime":"","isDel":0,"size":53376,"sysType":"720can","type":1003,"updateVer":"920","url1":"http://www.che-mi.com.cn/720_can/CANBOX_UPDATE920.bin","url2":"http://www.che-mi.com.cn/720_can/CANBOX_UPDATE920.bin","url3":"http://www.che-mi.com.cn/720_can/CANBOX_UPDATE920.bin","verId":821,"verInfo":"720can升级"},"version":"920"}
+
+
+        </p>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_chemi.test_uploadfile.upLoadFile</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',1)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_001</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <p style="word-wrap:break-word;word-break:break-all;">
+        
+pt2.1: 200
+{"code":"200","cmd":"","result":{"fid":"14,2b3dcadd5b775c","real_url":"http://newfile.che-mi.net/14,2b3dcadd5b775c","url":"http://newfile.che-mi.net/","size":59109},"msg":"执行成功！"}
+
+
+        </p>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_fangche.test_get_live_comment.getComment</td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',3)">Detail</a></td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_001: 获取直播评论列表</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.1')" >
+        pass</a>
+
+    <div id='div_pt3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <p style="word-wrap:break-word;word-break:break-all;">
+        
+pt3.1: 200
+{"code":200,"msg":"执行成功","result":[{"com_id":6,"is_del":0,"memo":"评论内容","memo_time":1501492093000,"user_id":16,"video_id":1}],"total":2}
+
+
+        </p>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002: 获取直播评论列表失败</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.2')" >
+        pass</a>
+
+    <div id='div_pt3.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <p style="word-wrap:break-word;word-break:break-all;">
+        
+pt3.2: 操作失败
+{"code":302,"msg":"操作失败","total":0}
+
+
+        </p>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_003: 获取直播评论列表失败</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.3')" >
+        pass</a>
+
+    <div id='div_pt3.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <p style="word-wrap:break-word;word-break:break-all;">
+        
+pt3.3: 操作失败
+{"code":302,"msg":"操作失败","total":0}
+
+
+        </p>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_fangche.test_get_live_list.getLiveList</td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c4',3)">Detail</a></td>
+</tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_001: 获取直播列表__房车直播</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        pass</a>
+
+    <div id='div_pt4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <p style="word-wrap:break-word;word-break:break-all;">
+        
+pt4.1: 执行成功
+{"code":200,"msg":"执行成功","result":[{"create_time":1501651680000,"id":11849,"imei":"862799030004737","is_del":0,"is_recommend":0,"lat":"1139220000","live_type":1,"liveurl":"rtmp://9383.liveplay.myqcloud.com/live/862799030004737","lng":"224980000","name":"车米一号","pages":0,"pic_url":"http://120.76.236.210:9093/upload/temp/2017/07/26/8a48e99e-955b-4fbd-ad1b-c4492140ef09.jpg","rows":0,"theme":"车米直播","video_code":"862799030004737","video_comment":0,"video_like":0,"video_read":9},{"create_time":1501654430000,"id":12045,"imei":"862799030004703","is_del":0,"is_recommend":0,"lat":"1139220000","live_type":1,"liveurl":"rtmp://9383.liveplay.myqcloud.com/live/862799030004703","lng":"224989900","name":"name","pages":0,"pic_url":"http://newfile.che-mi.net/23,1d2a09931eec64","rows":0,"theme":"主题","video_code":"862799030004703","video_comment":0,"video_like":0,"video_read":3},{"create_time":1501660913000,"id":12469,"imei":"862799030001618","is_del":0,"is_recommend":0,"lat":"1132290000","live_type":1,"liveurl":"rtmp://9383.liveplay.myqcloud.com/live/862799030001618","lng":"224980000","name":"name","pages":0,"pic_url":"http://newfile.che-mi.net/23,1d2a09931eec64","rows":0,"theme":"主题","video_code":"862799030001618","video_comment":0,"video_like":0,"video_read":0}],"total":3}
+
+
+        </p>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002: 获取直播列表__车米直播</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.2')" >
+        pass</a>
+
+    <div id='div_pt4.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <p style="word-wrap:break-word;word-break:break-all;">
+        
+pt4.2: 执行成功
+{"code":200,"msg":"执行成功","result":[{"create_time":1501660913000,"id":12469,"imei":"862799030001618","is_del":0,"is_recommend":0,"lat":"1132290000","live_type":1,"liveurl":"rtmp://9383.liveplay.myqcloud.com/live/862799030001618","lng":"224980000","name":"name","pages":0,"pic_url":"http://newfile.che-mi.net/23,1d2a09931eec64","rows":0,"theme":"主题","video_code":"862799030001618","video_comment":0,"video_like":0,"video_read":0},{"create_time":1501654430000,"id":12045,"imei":"862799030004703","is_del":0,"is_recommend":0,"lat":"1139220000","live_type":1,"liveurl":"rtmp://9383.liveplay.myqcloud.com/live/862799030004703","lng":"224989900","name":"name","pages":0,"pic_url":"http://newfile.che-mi.net/23,1d2a09931eec64","rows":0,"theme":"主题","video_code":"862799030004703","video_comment":0,"video_like":0,"video_read":3},{"create_time":1501651680000,"id":11849,"imei":"862799030004737","is_del":0,"is_recommend":0,"lat":"1139220000","live_type":1,"liveurl":"rtmp://9383.liveplay.myqcloud.com/live/862799030004737","lng":"224980000","name":"车米一号","pages":0,"pic_url":"http://120.76.236.210:9093/upload/temp/2017/07/26/8a48e99e-955b-4fbd-ad1b-c4492140ef09.jpg","rows":0,"theme":"车米直播","video_code":"862799030004737","video_comment":0,"video_like":0,"video_read":9}],"total":3}
+
+
+        </p>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_003: 获取直播列表__直播类型错误</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.3')" >
+        pass</a>
+
+    <div id='div_pt4.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <p style="word-wrap:break-word;word-break:break-all;">
+        
+pt4.3: 暂无数据
+{"code":200,"msg":"暂无数据","total":0}
+
+
+        </p>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='failClass'>
+    <td>test_fangche.test_get_reward_count.getRewardCount</td>
+    <td>2</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c5',2)">Detail</a></td>
+</tr>
+
+<tr id='ft5.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_001: 获取打赏道具数量</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.1')" >
+        fail</a>
+
+    <div id='div_ft5.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <p style="word-wrap:break-word;word-break:break-all;">
+        
+ft5.1: 用户未登录
+{"code":301,"msg":"用户未登录","result":0}
+Traceback (most recent call last):
+  File "E:\Pyscript\fangche\test_case\test_fangche\test_get_reward_count.py", line 29, in test_001
+    assert check_point == u'æ§è¡æå'
+AssertionError
+
+
+        </p>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt5.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002: 获取打赏道具数量</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.2')" >
+        pass</a>
+
+    <div id='div_pt5.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <p style="word-wrap:break-word;word-break:break-all;">
+        
+pt5.2: 用户未登录
+{"code":301,"msg":"用户未登录","result":0}
+
+
+        </p>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>test_fangche.test_like.setLike</td>
+    <td>3</td>
+    <td>1</td>
+    <td>0</td>
+    <td>2</td>
+    <td><a href="javascript:showClassDetail('c6',3)">Detail</a></td>
+</tr>
+
+<tr id='ft6.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_001: 点赞与打赏</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.1')" >
+        error</a>
+
+    <div id='div_ft6.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <p style="word-wrap:break-word;word-break:break-all;">
+        
+ft6.1: Traceback (most recent call last):
+  File "E:\Pyscript\fangche\test_case\test_fangche\test_like.py", line 25, in test_001
+    uid = r_uuid()[1]
+  File "E:\Pyscript\fangche\test_case\test_fangche\login.py", line 17, in r_uuid
+    uuid = response["data"]["uuid"]
+TypeError: 'NoneType' object is not subscriptable
+
+
+        </p>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt6.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002: 点赞与打赏,用户不存在/未登陆</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.2')" >
+        pass</a>
+
+    <div id='div_pt6.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <p style="word-wrap:break-word;word-break:break-all;">
+        
+pt6.2: 用户未登录
+{"code":301,"data":[],"msg":"用户未登录","result":0}
+
+
+        </p>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft6.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_003: 点赞与打赏, live_type不正确</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.3')" >
+        error</a>
+
+    <div id='div_ft6.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <p style="word-wrap:break-word;word-break:break-all;">
+        
+ft6.3: Traceback (most recent call last):
+  File "E:\Pyscript\fangche\test_case\test_fangche\test_like.py", line 63, in test_003
+    uid = r_uuid()[1]
+  File "E:\Pyscript\fangche\test_case\test_fangche\login.py", line 17, in r_uuid
+    uuid = response["data"]["uuid"]
+TypeError: 'NoneType' object is not subscriptable
+
+
+        </p>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_fangche.test_login.testLogin</td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c7',3)">Detail</a></td>
+</tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_001: 房车登录成功</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.1')" >
+        pass</a>
+
+    <div id='div_pt7.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <p style="word-wrap:break-word;word-break:break-all;">
+        
+pt7.1: 13538152630
+{"success":true,"data":{"id":"62b16918a0f24a048dd68b869feded9a","username":"13538152630","password":null,"nickname":"微波快来","avatarUrl":"http://newfile.che-mi.net/31,28850465b283d4","verifyCode":null,"uuid":"bc2123db3b06444fa977470cc3c7b3f7","secret":"6d478bccb6514fb299b55e704ce1d7cf"},"errorCode":null,"msg":null}
+
+
+        </p>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002: 房车登录失败,密码错误</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.2')" >
+        pass</a>
+
+    <div id='div_pt7.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <p style="word-wrap:break-word;word-break:break-all;">
+        
+pt7.2: 用户名/密码错误
+{"success":false,"data":null,"errorCode":"username/password error","msg":"用户名/密码错误"}
+
+
+        </p>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_003: 房车登录失败,用户名不存在</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.3')" >
+        pass</a>
+
+    <div id='div_pt7.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <p style="word-wrap:break-word;word-break:break-all;">
+        
+pt7.3: 用户名/密码错误
+{"success":false,"data":null,"errorCode":"username/password error","msg":"用户名/密码错误"}
+
+
+        </p>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='failClass'>
+    <td>test_fangche.test_set_live_comment.setLiveComment</td>
+    <td>2</td>
+    <td>0</td>
+    <td>2</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c8',2)">Detail</a></td>
+</tr>
+
+<tr id='ft8.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_001: 直播评论</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.1')" >
+        fail</a>
+
+    <div id='div_ft8.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <p style="word-wrap:break-word;word-break:break-all;">
+        
+ft8.1: json异常
+{"code":300,"msg":"json异常"}
+Traceback (most recent call last):
+  File "E:\Pyscript\fangche\test_case\test_fangche\test_set_live_comment.py", line 29, in test_001
+    assert check_point == u'æ§è¡æå'
+AssertionError
+
+
+        </p>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.2' class='none'>
+    <td class='failCase'><div class='testcase'>test_002: 直播评论_用户不存在</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.2')" >
+        fail</a>
+
+    <div id='div_ft8.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <p style="word-wrap:break-word;word-break:break-all;">
+        
+ft8.2: json异常
+{"code":300,"msg":"json异常"}
+Traceback (most recent call last):
+  File "E:\Pyscript\fangche\test_case\test_fangche\test_set_live_comment.py", line 47, in test_002
+    assert check_point == u'è¯·éæ°ç»é'
+AssertionError
+
+
+        </p>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>19</td>
+    <td>14</td>
+    <td>3</td>
+    <td>2</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
