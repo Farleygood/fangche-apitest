@@ -1,0 +1,11 @@
+.settings
+.project
+.pydevproject
+.idea
+*.log
+*.log_file
+*.pyc
+*.xlsx
+test.py
+*.html
+
