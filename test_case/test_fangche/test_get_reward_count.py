@@ -6,6 +6,7 @@ import unittest
 from common.read_sql import *
 import requests, os
 from model.log import logger
+from login import *
 
 import sys
 reload(sys)
@@ -19,8 +20,10 @@ class getRewardCount(unittest.TestCase):
     def test_001(self):
         '''获取打赏道具数量'''
         logger.info('正在读取_%s:test_001...'%os.path.basename(os.path.abspath(__file__)))
+        uid = r_uuid()[1]
         url = selectMysql('Requst_URL','fangche_interface_case', 6)[0]
         body = selectMysql('Request_Data','fangche_interface_case', 6)[0]
+        body = body.replace('${id}',uid)
         r = requests.post(url=url, data=body)
         responds = r.json()
         check_point = responds['msg']

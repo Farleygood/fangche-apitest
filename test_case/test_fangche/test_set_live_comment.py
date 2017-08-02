@@ -6,6 +6,8 @@ import unittest
 from common.read_sql import *
 import requests, os
 from model.log import logger
+from login import *
+import json
 
 import sys
 reload(sys)
@@ -19,9 +21,13 @@ class setLiveComment(unittest.TestCase):
     def test_001(self):
         '''直播评论'''
         logger.info('正在读取_%s:test_001...'%os.path.basename(os.path.abspath(__file__)))
+        uid = r_uuid()[1]
         url = selectMysql('Requst_URL','fangche_interface_case', 5)[0]
         body = selectMysql('Request_Data','fangche_interface_case', 5)[0]
-        r = requests.post(url=url, data=body)
+        data = body.replace('${id}',uid)
+        print data
+        # 这里参数的格式限制为json格式,其他接口没有限制参数的格式,坑爹的开发
+        r = requests.post(url=url, json=json.loads(data))
         responds = r.json()
         check_point = responds['msg']
         print(check_point)
@@ -39,14 +45,14 @@ class setLiveComment(unittest.TestCase):
         logger.info('正在读取_%s:test_002...' % os.path.basename(os.path.abspath(__file__)))
         url = selectMysql('Requst_URL', 'fangche_interface_case', 15)[0]
         body = selectMysql('Request_Data', 'fangche_interface_case', 15)[0]
-        r = requests.post(url=url, data=body)
+        r = requests.post(url=url, json=json.loads(body))
         responds = r.json()
         check_point = responds['msg']
         print(check_point)
         print(r.text)
-        assert check_point == u'请重新登陆'
+        assert check_point == u'请重新登录'
         logger.info("%s:test__002测试结果正在写入数据库..." % os.path.basename(os.path.abspath(__file__)))
-        if check_point == u'请重新登陆':
+        if check_point == '请重新登录':
             updataMysql('fangche_interface_case', r.text, 'pass', '直播评论_用户不存在')
         else:
             updataMysql('fangche_interface_case', r.text, 'fail', '直播评论_用户不存在')

@@ -18,10 +18,7 @@ class upLoadFile(unittest.TestCase):
         pass
 
     def test_001(self):
-        '''
-        图片上传
-        上传图片路径:C:\Users\Public\Pictures\Sample Pictures\1447007795_9803.jpg
-        '''
+        '''图片上传成功'''
         logger.info('正在读取_{0}:test_001...'.format(os.path.basename(os.path.abspath(__file__))))
         url = selectMysql('Requst_URL','chemi_interface_case', 5)[0]
         # file = str(selectMysql('Request_Data','chemi_interface_case', 5)[0])

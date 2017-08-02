@@ -15,7 +15,7 @@ sys.setdefaultencoding('utf-8')
 class getComment(unittest.TestCase):
 
     def setUp(self):
-        pass
+        updata_tables('chemi_interface_case', '', '')
 
     def test_001(self):
         '''获取直播评论列表'''
