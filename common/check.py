@@ -2,6 +2,11 @@
 # coding:utf-8
 __author__ = 'Farley'
 
+
+'''
+没用的文件,先放到这里
+'''
+
 import xlrd
 import xlwt
 import json
@@ -9,7 +14,6 @@ from common.read_sql import *
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
-
 
 
 '''
